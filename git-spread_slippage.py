@@ -100,6 +100,9 @@ def bitkub(btc_sell_list):
                     b_index=i+1
                     break
         if b_sum_amount<btc_sell_amount and i==len(ask)-1:
+            bk_slippage_list.append([-1,-1,-1])
+            while(len(bk_slippage_list)!= len(btc_sell_list)) :
+                bk_slippage_list.append([-1,-1,-1])
             break
         avg_buy_price=sum_buy_price/(index)
         bybit_slippage=math.fabs(b_pf-pf)/midPrice
@@ -199,6 +202,9 @@ def huobi_thailand(btc_sell_list):
                     b_index=i+1
                     break
         if b_sum_amount<btc_sell_amount and i==len(ask)-1:
+                hb_slippage_list.append([-1,-1,-1])
+                while(len(hb_slippage_list)!= len(btc_sell_list)) :
+                    hb_slippage_list.append([-1,-1,-1])
                 break
         avg_buy_price=sum_buy_price/(index)
         bybit_slippage=math.fabs(b_pf-pf)/midPrice
@@ -281,7 +287,10 @@ def satang(btc_sell_list):
                     b_index=i+1
                     break
         if b_sum_amount<btc_sell_amount and i==len(ask)-1:
-                    break
+                sp_slippage_list.append([-1,-1,-1])
+                while(len(sp_slippage_list)!= len(btc_sell_list)) :
+                    sp_slippage_list.append([-1,-1,-1])
+                break
         avg_buy_price=sum_buy_price/(index)
         bybit_slippage=math.fabs(b_pf-pf)/midPrice
         shrimpy_slippage=(math.fabs(pf-pi)/pi)
@@ -381,7 +390,10 @@ def bitazza(btc_sell_list):
                     break
 
         if b_sum_amount<btc_sell_amount and i==len(ask)-1:
-                    break
+            bz_slippage_list.append([-1,-1,-1])
+            while(len(bz_slippage_list)!= len(btc_sell_list)) :
+                bz_slippage_list.append([-1,-1,-1])
+            break
         avg_buy_price=sum_buy_price/(index)
         
         bybit_slippage=math.fabs(b_pf-pf)/midPrice
