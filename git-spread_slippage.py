@@ -416,12 +416,12 @@ slippage_spread_rows=[hb_time,bk_slippage,bk_slp_rows[0],bk_slp_rows[1],bk_slp_r
                       hb_slippage,hb_slp_rows[0],hb_slp_rows[1],hb_slp_rows[2],
                       bz_slippage,bz_slp_rows[0],bz_slp_rows[1],bz_slp_rows[2]]
 
-df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk-slp-shrimpy","bk-slp-kaiko","bk-slp-bybit",
-                                           "sp-spread","sp-slp-shrimpy","sp-slp-kaiko","sp-slp-bybit",
-                                           "hb-spread","hb-slp-shrimpy","hb-slp-kaiko","hb-slp-bybit",
-                                           "bz-spread","bz-slp-shrimpy","bz-slp-kaiko","bz-slp-bybit"])
-df_slippage_spread.to_csv("df_slippage_spread.csv", index=False)
-df=pd.read_csv("df_slippage_spread.csv")
+# df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk-slp-shrimpy","bk-slp-kaiko","bk-slp-bybit",
+#                                            "sp-spread","sp-slp-shrimpy","sp-slp-kaiko","sp-slp-bybit",
+#                                            "hb-spread","hb-slp-shrimpy","hb-slp-kaiko","hb-slp-bybit",
+#                                            "bz-spread","bz-slp-shrimpy","bz-slp-kaiko","bz-slp-bybit"])
+# df_slippage_spread.to_csv("df_slippage_spread.csv", index=False)
+# df=pd.read_csv("df_slippage_spread.csv")
 df=pd.read_csv("df_slippage_spread.csv")
 df.loc[len(df)]=slippage_spread_rows
 df.to_csv("df_slippage_spread.csv", index=False)
