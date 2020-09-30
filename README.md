@@ -1,4 +1,4 @@
 # spread-slippage
-## pip install satang-pro 
-## pip install websocket 
-## pip install websocket_client 
+pip install satang-pro <br/>
+pip install websocket <br/>
+pip install websocket_client <br/>
