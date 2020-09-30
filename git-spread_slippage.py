@@ -411,17 +411,17 @@ hb_slp_rows=(np.array(hb_slippage).T).tolist()
 sp_slp_rows=(np.array(sp_slippage).T).tolist()
 bz_slp_rows=(np.array(bz_slippage).T).tolist()
 
-slippage_spread_rows=[hb_time,bk_slippage,bk_slp_rows[0],bk_slp_rows[1],bk_slp_rows[2],
-                      sp_slippage,sp_slp_rows[0],sp_slp_rows[1],sp_slp_rows[2],
-                      hb_slippage,hb_slp_rows[0],hb_slp_rows[1],hb_slp_rows[2],
-                      bz_slippage,bz_slp_rows[0],bz_slp_rows[1],bz_slp_rows[2]]
+slippage_spread_rows=[hb_time,bk_spread,bk_slp_rows[0],bk_slp_rows[1],bk_slp_rows[2],
+                      sp_spread,sp_slp_rows[0],sp_slp_rows[1],sp_slp_rows[2],
+                      hb_spread,hb_slp_rows[0],hb_slp_rows[1],hb_slp_rows[2],
+                      bz_spread,bz_slp_rows[0],bz_slp_rows[1],bz_slp_rows[2]]
 
-# df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk-slp-shrimpy","bk-slp-kaiko","bk-slp-bybit",
-#                                            "sp-spread","sp-slp-shrimpy","sp-slp-kaiko","sp-slp-bybit",
-#                                            "hb-spread","hb-slp-shrimpy","hb-slp-kaiko","hb-slp-bybit",
-#                                            "bz-spread","bz-slp-shrimpy","bz-slp-kaiko","bz-slp-bybit"])
-# df_slippage_spread.to_csv("df_slippage_spread.csv", index=False)
-# df=pd.read_csv("df_slippage_spread.csv")
+df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk-slp-shrimpy","bk-slp-kaiko","bk-slp-bybit",
+                                           "sp-spread","sp-slp-shrimpy","sp-slp-kaiko","sp-slp-bybit",
+                                           "hb-spread","hb-slp-shrimpy","hb-slp-kaiko","hb-slp-bybit",
+                                           "bz-spread","bz-slp-shrimpy","bz-slp-kaiko","bz-slp-bybit"])
+df_slippage_spread.to_csv("df_slippage_spread.csv", index=False)
+
 df=pd.read_csv("df_slippage_spread.csv")
 df.loc[len(df)]=slippage_spread_rows
 df.to_csv("df_slippage_spread.csv", index=False)
