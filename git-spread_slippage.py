@@ -420,9 +420,10 @@ slippage_spread_rows=[hb_time,bk_spread,bk_slp_rows[0],bk_slp_rows[1],bk_slp_row
 #                                            "sp-spread","sp-slp-shrimpy","sp-slp-kaiko","sp-slp-bybit",
 #                                            "hb-spread","hb-slp-shrimpy","hb-slp-kaiko","hb-slp-bybit",
 #                                            "bz-spread","bz-slp-shrimpy","bz-slp-kaiko","bz-slp-bybit"])
-# df_slippage_spread.to_csv("df_slippage_spread.csv", index=False)
+# df_slippage_spread.to_csv("spread-slippage/df_slippage_spread.csv", index=False)
 
-df=pd.read_csv("df_slippage_spread.csv")
+
+df=pd.read_csv("spread-slippage/df_slippage_spread.csv")
 df.loc[len(df)]=slippage_spread_rows
 df.to_csv("df_slippage_spread.csv", index=False)
 df
