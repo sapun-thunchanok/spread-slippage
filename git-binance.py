@@ -112,11 +112,7 @@ bn_slippage_spread.to_csv("bn_slippage_spread.csv", index=False)
 df=pd.read_csv("bn_slippage_spread.csv")
 
 df.loc[len(df)]=bn_slippage_spread_rows
-df.to_csv("//Users//thunchanok//Downloads//bn_slippage_spread.csv", index=False)
-
-
-# In[ ]:
-
+df.to_csv("bn_slippage_spread.csv", index=False)
 
 
 
