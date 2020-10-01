@@ -130,8 +130,8 @@ slippage_spread_rows=[bk_time,bk_slippage,bk_slp_rows[0],bk_slp_rows[1],bk_slp_r
 
 
 
-df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk-slp-shrimpy","bk-slp-kaiko","bk-slp-bybit"])
-df_slippage_spread.to_csv("spread-slippage/bk_slippage_spread.csv", index=False)
+# df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk-slp-shrimpy","bk-slp-kaiko","bk-slp-bybit"])
+# df_slippage_spread.to_csv("spread-slippage/bk_slippage_spread.csv", index=False)
 
 
 df=pd.read_csv("spread-slippage/bk_slippage_spread.csv")
