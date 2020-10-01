@@ -119,14 +119,120 @@ def bitkub(btc_sell_list):
 #         slippage_list.append(bybit_slippage_list)
         bk_slippage_list.append([shrimpy_slippage,kaiko_slippage,bybit_slippage])
     return [df_ask.iloc[0]['time'],bk_slippage_list,spread]
+def huobi_thailand(btc_sell_list):
+# API
+    API_HOST = 'https://www.huobi.co.th/api'
+    API_KEY = 'c7c22f11-feb097ef-a6aa3e21-ur2fg6h2gf'
+    API_SECRET = b'298d9c50-bc6f69c5-2942dd26-d94df'
+
+    def json_encode(data):
+        return json.dumps(data, separators=(',', ':'), sort_keys=True)
+    # check server time
+    response = requests.get(API_HOST + '/v1/common/timestamp')
+    ts = response.json()
+    data = {
+        'symbol': 'btcthb', # The symbol
+        'type': 'step0' #https://www.reddit.com/r/huobi/comments/9xa5xg/what_is_the_purpose_of_step0_step1_step2_step3/
+    }
+    # Depth Type: step0, step1, step2, step3, step4, step5（merged depth 0-5）- step0 means doesn’t merge
+    # When the user selects “Merged Depth”, the market pending orders within the certain quotation accuracy will be combined and displayed. The merged depth only changes the display mode and does not change the actual order price
+    # 24 hours trade summary and best bid/ask for a symbol
+    # response = requests.get(API_HOST + '/market/depth',data)
+    response = requests.get(API_HOST + '/market/depth',data)
+    t=int(ts['data'])/1000
+    time=datetime.datetime.fromtimestamp(t)
+    a = response.json()
+    bid=a['tick']['bids']
+    ask= a['tick']['asks']
+# BID-ASK DATAFRAME
+    df_bid = pd.DataFrame(columns=["price","amount"])
+    df_ask = pd.DataFrame(columns=["price","amount"])
+    for i in range(len(bid)):
+        df_bid.loc[i]=bid[i]
+    for i in range(len(ask)):
+        df_ask.loc[i]=ask[i]
+    df_ask=df_ask.sort_values(by='price', ascending=True)
+    df_bid=df_bid.sort_values(by='price', ascending=False)
+#spread
+    # https://blog.shrimpy.io/blog/cryptocurrency-trading-101-exchange-market-spread?rq=spread
+    # AL(lowest ask price) - BH(highest buy price) = Spread
+    # Percent Spread = (Spread / lowest ask price) x 100
+    max_bid=float(df_bid.iloc[0]['price'])
+    min_ask=float(df_ask.iloc[0]['price'])
+    spread=((min_ask-max_bid)/min_ask)*100
+#slippage
+    # kaiko
+    avg_buy_price=0
+    best_ask=min_ask
+    best_bid=max_bid
+    midPrice=(best_ask+best_bid)/2
+    sum_buy_price=0
+    shrimpy_slippage_list=[]
+    kaiko_slippage_list=[]
+    bybit_slippage_list=[]
+    hb_slippage_list=[]
+    for btc_sell_amount in btc_sell_list:
+        sum_amount=0
+        pi=float(df_ask.iloc[0]['price'])
+        sum_buy_price=0 
+        for i in range (len(ask)):
+            if btc_sell_amount > sum_amount:
+                sum_amount=float(df_ask.iloc[i]['amount'])+sum_amount
+                sum_buy_price= sum_buy_price+float(df_ask.iloc[i]['price'])
+                if sum_amount>=btc_sell_amount:
+                    pf=float(df_ask.iloc[i]['price'])
+                    index=i+1
+                    break
+        if sum_amount<btc_sell_amount and i==len(ask)-1:
+                hb_slippage_list.append([-1,-1,-1])
+                while(len(hb_slippage_list)!= len(btc_sell_list)) :
+                    hb_slippage_list.append([-1,-1,-1])
+                break
+        b_sum_amount=0
+        sum_ask_price= 0
+        b_pi=float(df_bid.iloc[0]['price'])
+        for i in range (len(bid)):
+            if btc_sell_amount > b_sum_amount:
+                b_sum_amount=float(df_bid.iloc[i]['amount'])+b_sum_amount
+                sum_ask_price= sum_ask_price+float(df_bid.iloc[i]['price'])
+                if b_sum_amount>=btc_sell_amount:
+                    b_pf=float(df_bid.iloc[i]['price'])
+                    b_index=i+1
+                    break
+        if b_sum_amount<btc_sell_amount and i==len(ask)-1:
+                hb_slippage_list.append([-1,-1,-1])
+                while(len(hb_slippage_list)!= len(btc_sell_list)) :
+                    hb_slippage_list.append([-1,-1,-1])
+                break
+        avg_buy_price=sum_buy_price/(index)
+        bybit_slippage=math.fabs(b_pf-pf)/midPrice
+        shrimpy_slippage=(math.fabs(pf-pi)/pi)
+        kaiko_slippage=(math.fabs(avg_buy_price-midPrice)/midPrice)
+
+        shrimpy_slippage_list.append(shrimpy_slippage)
+        kaiko_slippage_list.append(kaiko_slippage)
+        bybit_slippage_list.append(bybit_slippage)
+        
+        hb_slippage_list.append([shrimpy_slippage,kaiko_slippage,bybit_slippage])
+#         hb_slippage_list.append(shrimpy_slippage_list)
+#         hb_slippage_list.append(kaiko_slippage_list)
+#         hb_slippage_list.append(bybit_slippage_list)
+        
+
+    return [time,hb_slippage_list,spread]
+
+
+
+
 btc_sell_list=[0.1,0.3,0.5,1,5]
 bk_time,bk_slippage,bk_spread=bitkub(btc_sell_list)
+hb_time,hb_slippage,hb_spread=huobi_thailand(btc_sell_list)
 
 
 bk_slp_rows=(np.array(bk_slippage).T).tolist()
 
 
-slippage_spread_rows=[bk_time,bk_spread,bk_slp_rows[0],bk_slp_rows[1],bk_slp_rows[2]]
+slippage_spread_rows=[hb_time,bk_spread,bk_slp_rows[0],bk_slp_rows[1],bk_slp_rows[2]]
 
 
 
