@@ -33,7 +33,7 @@ def bitkub(btc_sell_list):
     ts = int(response.text)
     data = {
         'sym': 'THB_BTC', # The symbol
-        'lmt': 100
+        'lmt': 10
     }
     response = requests.get(API_HOST + '/api/market/books',data)
     a = response.json()
@@ -126,7 +126,7 @@ bk_time,bk_slippage,bk_spread=bitkub(btc_sell_list)
 bk_slp_rows=(np.array(bk_slippage).T).tolist()
 
 
-slippage_spread_rows=[bk_time,bk_slippage,bk_slp_rows[0],bk_slp_rows[1],bk_slp_rows[2]]
+slippage_spread_rows=[bk_time,bk_spread,bk_slp_rows[0],bk_slp_rows[1],bk_slp_rows[2]]
 
 
 
