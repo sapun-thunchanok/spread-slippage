@@ -33,7 +33,7 @@ def bitkub(btc_sell_list):
     ts = int(response.text)
     data = {
         'sym': 'THB_BTC', # The symbol
-        'lmt': 10
+        'lmt': 100
     }
     response = requests.get(API_HOST + '/api/market/books',data)
     a = response.json()
