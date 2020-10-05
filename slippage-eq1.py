@@ -371,13 +371,13 @@ slippage_spread_rows=[hb_time,bk_spread,bk_ask_slippage,bk_bid_slippage,
                       hb_spread,hb_ask_slippage,hb_bid_slippage,
                       sp_spread,sp_ask_slippage,sp_bid_slippage,
                       bz_spread,bz_ask_slippage,bz_bid_slippage]
-df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk_ask_slippage","bk_bid_slippage",
-                                           "sp-spread","sp_ask_slippage","sp_bid_slippage",
-                                           "hb-spread","hb_ask_slippage","hb_bid_slippage",
-                                           "bz-spread","bz_ask_slippage","bz_bid_slippage"])
-# df_slippage_spread.to_csv("spread-slippage/df_slippage_spread.csv", index=False)
-# df_slippage_spread.to_csv("//Users//thunchanok//Downloads//df_slippage-eq1.csv", index=False)
-df_slippage_spread.to_csv("spread-slippage/df_slippage-eq1.csv", index=False)
+# df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk_ask_slippage","bk_bid_slippage",
+#                                            "sp-spread","sp_ask_slippage","sp_bid_slippage",
+#                                            "hb-spread","hb_ask_slippage","hb_bid_slippage",
+#                                            "bz-spread","bz_ask_slippage","bz_bid_slippage"])
+# # df_slippage_spread.to_csv("spread-slippage/df_slippage_spread.csv", index=False)
+# # df_slippage_spread.to_csv("//Users//thunchanok//Downloads//df_slippage-eq1.csv", index=False)
+# df_slippage_spread.to_csv("spread-slippage/df_slippage-eq1.csv", index=False)
 
 # df=pd.read_csv("//Users//thunchanok//Downloads//df_slippage-eq1.csv")
 df=pd.read_csv("spread-slippage/df_slippage-eq1.csv")
