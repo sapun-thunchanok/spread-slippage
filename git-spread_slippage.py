@@ -320,7 +320,7 @@ def bitazza(btc_sell_list):
     payload ={
         "market_pair": "BTCTHB", #THBBTC error
         "level": 2, #// level 1 or level 2 data
-        "depth": 10,
+        "depth": 100,
     }
     frame["o"]=json.dumps(payload) 
     ws.send(json.dumps(frame))
