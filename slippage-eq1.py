@@ -368,8 +368,8 @@ bz_time,bz_ask_slippage,bz_bid_slippage,bz_spread=bitazza(btc_sell_list)
 
 
 slippage_spread_rows=[hb_time,bk_spread,bk_ask_slippage,bk_bid_slippage,
-                      hb_spread,hb_ask_slippage,hb_bid_slippage,
                       sp_spread,sp_ask_slippage,sp_bid_slippage,
+                      hb_spread,hb_ask_slippage,hb_bid_slippage,
                       bz_spread,bz_ask_slippage,bz_bid_slippage]
 # df_slippage_spread = pd.DataFrame(columns=["date","bk-spread","bk_ask_slippage","bk_bid_slippage",
 #                                            "sp-spread","sp_ask_slippage","sp_bid_slippage",
