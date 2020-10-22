@@ -620,20 +620,20 @@ slp3_rows_nosp=[date,bk_btc_a1,bk_usd_a1,bk_thb_a1,hb_btc_a1,hb_usd_a1,hb_thb_a1
            bk_btc_b3,bk_usd_b3,bk_thb_b3,hb_btc_b3,hb_usd_b3,hb_thb_b3,bz_btc_b3,bz_usd_b3,bz_thb_b3]
 #_________________________________________________________________________________________
 # https://jakevdp.github.io/PythonDataScienceHandbook/03.05-hierarchical-indexing.html
-columns = pd.MultiIndex.from_product([['ask slippage', 'bid slippage'], ['1%', '3%'],['bk','sp','hb','bz'],['BTC','USD','THB']])
-df = pd.DataFrame(columns=columns)
-df['date']=None
-df=df[['date','ask slippage','bid slippage']]
-# df.to_csv("//Users//thunchanok//Desktop//slp3.csv",index=False)
-df.to_csv("spread-slippage/slp3.csv",index=False)
+# columns = pd.MultiIndex.from_product([['ask slippage', 'bid slippage'], ['1%', '3%'],['bk','sp','hb','bz'],['BTC','USD','THB']])
+# df = pd.DataFrame(columns=columns)
+# df['date']=None
+# df=df[['date','ask slippage','bid slippage']]
+# # df.to_csv("//Users//thunchanok//Desktop//slp3.csv",index=False)
+# df.to_csv("spread-slippage/slp3.csv",index=False)
 
-# nosp
-columns = pd.MultiIndex.from_product([['ask slippage', 'bid slippage'], ['1%', '3%'],['bk','hb','bz'],['BTC','USD','THB']])
-df_ = pd.DataFrame(columns=columns)
-df_['date']=None
-df_=df_[['date','ask slippage','bid slippage']]
-# df.to_csv("//Users//thunchanok//Desktop//slp3.csv",index=False)
-df_.to_csv("spread-slippage/slp3_nosp.csv",index=False)
+# # nosp
+# columns = pd.MultiIndex.from_product([['ask slippage', 'bid slippage'], ['1%', '3%'],['bk','hb','bz'],['BTC','USD','THB']])
+# df_ = pd.DataFrame(columns=columns)
+# df_['date']=None
+# df_=df_[['date','ask slippage','bid slippage']]
+# # df.to_csv("//Users//thunchanok//Desktop//slp3.csv",index=False)
+# df_.to_csv("spread-slippage/slp3_nosp.csv",index=False)
 #_________________________________________________________________________________________
 # +++++++++++++++++
 # df=pd.read_csv("//Users//thunchanok//Desktop//slp3.csv", header=[0,1,2,3])
