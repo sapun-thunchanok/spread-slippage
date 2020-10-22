@@ -615,12 +615,12 @@ slp3_rows=[date,bk_btc_a1,bk_usd_a1,bk_thb_a1,bk_btc_a3,bk_usd_a3,bk_thb_a3,bk_b
 
 
 # https://jakevdp.github.io/PythonDataScienceHandbook/03.05-hierarchical-indexing.html
-columns = pd.MultiIndex.from_product([['ask slippage', 'bid slippage'], ['1%', '3%'],['bk','sp','hb','bz'],['BTC','USD','THB']])
-df = pd.DataFrame(columns=columns)
-df['date']=None
-df=df[['date','ask slippage','bid slippage']]
-# df.to_csv("//Users//thunchanok//Desktop//slp3.csv",index=False)
-df.to_csv("spread-slippage/slp3.csv",index=False)
+# columns = pd.MultiIndex.from_product([['ask slippage', 'bid slippage'], ['1%', '3%'],['bk','sp','hb','bz'],['BTC','USD','THB']])
+# df = pd.DataFrame(columns=columns)
+# df['date']=None
+# df=df[['date','ask slippage','bid slippage']]
+# # df.to_csv("//Users//thunchanok//Desktop//slp3.csv",index=False)
+# df.to_csv("spread-slippage/slp3.csv",index=False)
 
 # +++++++++++++++++
 # df=pd.read_csv("//Users//thunchanok//Desktop//slp3.csv", header=[0,1,2,3])
