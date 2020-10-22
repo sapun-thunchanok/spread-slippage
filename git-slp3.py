@@ -642,7 +642,7 @@ df.loc[len(df)]=slp3_rows
 df.to_csv("spread-slippage/slp3.csv",index=False)
 
 df_=pd.read_csv("spread-slippage/slp3_nosp.csv", header=[0,1,2,3])
-df_.loc[len(df)]=slp3_rows
+df_.loc[len(df_)]=slp3_rows_nosp
 df_.to_csv("spread-slippage/slp3_nosp.csv",index=False)
 # df.to_csv("//Users//thunchanok//Desktop//slp3.csv",index=False)
 
