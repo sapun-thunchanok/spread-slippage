@@ -17,7 +17,6 @@ import math
 from satang_pro import SatangPro
 
 import websocket
-from coinmarketcapapi import CoinMarketCapAPI #https://pypi.org/project/python-coinmarketcap/
 import http.client
 
 def getbotrate():  
