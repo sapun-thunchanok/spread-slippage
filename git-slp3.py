@@ -268,7 +268,7 @@ def hb_slp():
     if(df_ask['ask_slp'].max()>=1.0):
         a_slp_1=df_ask[df_ask['ask_slp']<1.0]
         a_cur_price_1=df_ask['total'][df_ask['ask_slp']>=1.0].iloc[0]
-        a_cur_amount_1=df_ask['total'][df_ask['ask_slp']>=1.0].iloc[0]
+        a_cur_amount_1=df_ask['amount'][df_ask['ask_slp']>=1.0].iloc[0]
 #         print("______________________________________________________________")
 #         print("****เราต้องกว้านซื้อ BTC เพื่อให้ ask slippage เปลี่ยน 1 % จำนวน****")
 #         print("Total price(THB) for changing 1% ask slippage : "+str(a_slp_1['total'].sum()+a_cur_price_1))
@@ -282,7 +282,7 @@ def hb_slp():
     if(df_ask['ask_slp'].max()>=3.0):
         a_slp_3=df_ask[df_ask['ask_slp']<3.0]
         a_cur_price_3=df_ask['total'][df_ask['ask_slp']>=3.0].iloc[0]
-        a_cur_amount_3=df_ask['total'][df_ask['ask_slp']>=3.0].iloc[0]
+        a_cur_amount_3=df_ask['amount'][df_ask['ask_slp']>=3.0].iloc[0]
 #         print("****เราต้องกว้านซื้อ BTC เพื่อให้ ask slippage เปลี่ยน 3 % จำนวน****")
 #         print("Total price(THB) for changing 3% ask slippage : "+str(a_slp_3['total'].sum()+a_cur_price_3))
 #         print("Total amount(BTC) for changing 3% ask slippage : "+str(a_slp_3['amount'].sum()+a_cur_amount_3))
@@ -397,7 +397,7 @@ def sp_slp():
     if(df_ask['ask_slp'].max()>=1.0):
         a_slp_1=df_ask[df_ask['ask_slp']<1.0]
         a_cur_price_1=df_ask['total'][df_ask['ask_slp']>=1.0].iloc[0]
-        a_cur_amount_1=df_ask['total'][df_ask['ask_slp']>=1.0].iloc[0]
+        a_cur_amount_1=df_ask['amount'][df_ask['ask_slp']>=1.0].iloc[0]
 
 #         print("______________________________________________________________")
 #         print("****เราต้องกว้านซื้อ BTC เพื่อให้ ask slippage เปลี่ยน 1 % จำนวน****")
@@ -414,7 +414,7 @@ def sp_slp():
 
         a_slp_3=df_ask[df_ask['ask_slp']<3.0]
         a_cur_price_3=df_ask['total'][df_ask['ask_slp']>=3.0].iloc[0]
-        a_cur_amount_3=df_ask['total'][df_ask['ask_slp']>=3.0].iloc[0]
+        a_cur_amount_3=df_ask['amount'][df_ask['ask_slp']>=3.0].iloc[0]
 
 #         print("****เราต้องกว้านซื้อ BTC เพื่อให้ ask slippage เปลี่ยน 3 % จำนวน****")
 #         print("Total price(THB) for changing 3% ask slippage : "+str(a_slp_3['total'].sum()+a_cur_price_3))
@@ -545,7 +545,7 @@ def bz_slp():
     if(df_ask['ask_slp'].max()>=1.0):
         a_slp_1=df_ask[df_ask['ask_slp']<1.0]
         a_cur_price_1=df_ask['total'][df_ask['ask_slp']>=1.0].iloc[0]
-        a_cur_amount_1=df_ask['total'][df_ask['ask_slp']>=1.0].iloc[0]
+        a_cur_amount_1=df_ask['amount'][df_ask['ask_slp']>=1.0].iloc[0]
 
 #         print("______________________________________________________________")
 #         print("****เราต้องกว้านซื้อ BTC เพื่อให้ ask slippage เปลี่ยน 1 % จำนวน****")
@@ -562,7 +562,7 @@ def bz_slp():
 
         a_slp_3=df_ask[df_ask['ask_slp']<3.0]
         a_cur_price_3=df_ask['total'][df_ask['ask_slp']>=3.0].iloc[0]
-        a_cur_amount_3=df_ask['total'][df_ask['ask_slp']>=3.0].iloc[0]
+        a_cur_amount_3=df_ask['amount'][df_ask['ask_slp']>=3.0].iloc[0]
 
 #         print("****เราต้องกว้านซื้อ BTC เพื่อให้ ask slippage เปลี่ยน 3 % จำนวน****")
 #         print("Total price(THB) for changing 3% ask slippage : "+str(a_slp_3['total'].sum()+a_cur_price_3))
