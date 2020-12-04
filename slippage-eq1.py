@@ -360,7 +360,7 @@ def bitazza(btc_sell_list):
     return [time,ask_slippage_list,bid_slippage_list,spread]
 
 # MAIN-----------------------------------
-btc_sell_list=[0.1,0.3,0.5,1,5]
+btc_sell_list=[0.1,0.3,0.5,1,5,10]
 bk_time,bk_ask_slippage,bk_bid_slippage,bk_spread=bitkub(btc_sell_list)
 hb_time,hb_ask_slippage,hb_bid_slippage,hb_spread=huobi_thailand(btc_sell_list)
 sp_ask_slippage,sp_bid_slippage,sp_spread=satang(btc_sell_list)
