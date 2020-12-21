@@ -112,8 +112,10 @@ def bitkub(btc_sell_list):
 def huobi_thailand(btc_sell_list):
 # API
     API_HOST = 'https://www.huobi.co.th/api'
-    API_KEY = 'c7c22f11-feb097ef-a6aa3e21-ur2fg6h2gf'
-    API_SECRET = b'298d9c50-bc6f69c5-2942dd26-d94df'
+#     API_KEY = 'c7c22f11-feb097ef-a6aa3e21-ur2fg6h2gf'
+    API_KEY = 'f2137555-3a7561ea-bvrge3rf7j-40f17'
+#     API_SECRET = b'298d9c50-bc6f69c5-2942dd26-d94df'
+    API_SECRET = b'e0d65096-a2b9419f-7d6e8457-1eca9'
     def json_encode(data):
         return json.dumps(data, separators=(',', ':'), sort_keys=True)
     # check server time
