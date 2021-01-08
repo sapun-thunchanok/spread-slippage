@@ -59,6 +59,16 @@ def bk_slp():
     #     bit-ask datafreame
     ask=a['result']['asks']
     bid=a['result']['bids']
+    if len(bid)==0 or len(ask)==0:
+       a_s1_tp=-1
+       a_s1_ta=-1
+       a_s3_tp=-1
+       a_s3_ta=-1
+       b_s1_tp=-1
+       b_s1_ta=-1
+       b_s3_tp=-1
+       b_s3_ta=-1
+       return a_s1_tp,a_s1_ta,a_s3_tp,a_s3_ta,b_s1_tp,b_s1_ta,b_s3_tp,b_s3_ta
     df_bid = pd.DataFrame(columns=["order id","timestamp","total","price","amount"])
     df_ask = pd.DataFrame(columns=["order id","timestamp","total","price","amount"])
 
@@ -192,6 +202,16 @@ def hb_slp():
     a = response.json()
     bid=a['tick']['bids']
     ask= a['tick']['asks']
+    if len(bid)==0 or len(ask)==0:
+       a_s1_tp=-1
+       a_s1_ta=-1
+       a_s3_tp=-1
+       a_s3_ta=-1
+       b_s1_tp=-1
+       b_s1_ta=-1
+       b_s3_tp=-1
+       b_s3_ta=-1
+       return time,a_s1_tp,a_s1_ta,a_s3_tp,a_s3_ta,b_s1_tp,b_s1_ta,b_s3_tp,b_s3_ta
     # BID-ASK DATAFRAME
     df_bid = pd.DataFrame(columns=["price","amount"])
     df_ask = pd.DataFrame(columns=["price","amount"])
@@ -318,6 +338,16 @@ def sp_slp():
     bid=sp.orders(pair='btc_thb')['bid']
     ask =sp.orders(pair='btc_thb')['ask']
     sp.orders(pair='btc_thb')['ask']
+    if len(bid)==0 or len(ask)==0:
+       a_s1_tp=-1
+       a_s1_ta=-1
+       a_s3_tp=-1
+       a_s3_ta=-1
+       b_s1_tp=-1
+       b_s1_ta=-1
+       b_s3_tp=-1
+       b_s3_ta=-1
+       return a_s1_tp,a_s1_ta,a_s3_tp,a_s3_ta,b_s1_tp,b_s1_ta,b_s3_tp,b_s3_ta
     # BIT-ASK DATAFRAME
     df_bid = pd.DataFrame(columns=["price","amount"])
     df_ask = pd.DataFrame(columns=["price","amount"])
@@ -469,6 +499,16 @@ def bz_slp():
     time=datetime.datetime.fromtimestamp(t)
     bid=a['bids']
     ask= a['asks']
+    if len(bid)==0 or len(ask)==0:
+       a_s1_tp=-1
+       a_s1_ta=-1
+       a_s3_tp=-1
+       a_s3_ta=-1
+       b_s1_tp=-1
+       b_s1_ta=-1
+       b_s3_tp=-1
+       b_s3_ta=-1
+       return a_s1_tp,a_s1_ta,a_s3_tp,a_s3_ta,b_s1_tp,b_s1_ta,b_s3_tp,b_s3_ta
     # BID-ASK DATAFRAME
     df_bid = pd.DataFrame(columns=["amount","price"])
     df_ask = pd.DataFrame(columns=["amount","price"])
