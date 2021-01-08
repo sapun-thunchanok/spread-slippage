@@ -40,6 +40,12 @@ def bitkub(btc_sell_list):
 #     bit-ask datafreame
     ask=a['result']['asks']
     bid=a['result']['bids']
+    if len(bid)==0 or len(ask)==0:
+#     print("hi")
+        ask_slippage_list=[-1, -1,-1,-1,-1,-1]
+        bid_slippage_list=[-1, -1,-1,-1,-1,-1]
+        spread=-1
+        return [-1,ask_slippage_list,bid_slippage_list,spread]
     df_bid = pd.DataFrame(columns=["order id","timestamp","volume","rate","amount"])
     df_ask = pd.DataFrame(columns=["order id","timestamp","volume","rate","amount"])
     for i in range(len(bid)):
@@ -131,6 +137,11 @@ def huobi_thailand(btc_sell_list):
     a = response.json()
     bid=a['tick']['bids']
     ask= a['tick']['asks']
+    if len(bid)==0 or len(ask)==0:
+        ask_slippage_list=[-1, -1,-1,-1,-1,-1]
+        bid_slippage_list=[-1, -1,-1,-1,-1,-1]
+        spread=-1
+        return [time,ask_slippage_list,bid_slippage_list,spread]
 # BID-ASK DATAFRAME
     df_bid = pd.DataFrame(columns=["price","amount"])
     df_ask = pd.DataFrame(columns=["price","amount"])
@@ -207,6 +218,11 @@ def satang(btc_sell_list):
     bid=sp.orders(pair='btc_thb')['bid']
     ask =sp.orders(pair='btc_thb')['ask']
     sp.orders(pair='btc_thb')['ask']
+    if len(bid)==0 or len(ask)==0:
+        ask_slippage_list=[-1, -1,-1,-1,-1,-1]
+        bid_slippage_list=[-1, -1,-1,-1,-1,-1]
+        spread=-1
+        return [ask_slippage_list,bid_slippage_list,spread]
 # BIT-ASK DATAFRAME
     df_bid = pd.DataFrame(columns=["price","amount"])
     df_ask = pd.DataFrame(columns=["price","amount"])
@@ -298,6 +314,11 @@ def bitazza(btc_sell_list):
     time=datetime.datetime.fromtimestamp(t)
     bid=a['bids']
     ask= a['asks']
+    if len(bid)==0 or len(ask)==0:
+        ask_slippage_list=[-1, -1,-1,-1,-1,-1]
+        bid_slippage_list=[-1, -1,-1,-1,-1,-1]
+        spread=-1
+        return [time,ask_slippage_list,bid_slippage_list,spread]
 # BID-ASK DATAFRAME
     df_bid = pd.DataFrame(columns=["amount","price"])
     df_ask = pd.DataFrame(columns=["amount","price"])
