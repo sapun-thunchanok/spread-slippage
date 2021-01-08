@@ -309,8 +309,10 @@ def hb_slp():
 
 def sp_slp():
     
-    API_KEY = "live-2a6c1bd5eb0b4321aaaf26721e997e9f"
-    SECRET_KEY = "fc8fa6ef2a9e4949bdf72d38208803657659ff67f2a74486a04a64b0bf1f2e6f"
+#     API_KEY = "live-2a6c1bd5eb0b4321aaaf26721e997e9f"
+#     SECRET_KEY = "fc8fa6ef2a9e4949bdf72d38208803657659ff67f2a74486a04a64b0bf1f2e6f"
+    API_KEY = "live-5bb9e6f14e084675897ccca80b4c2fa4"
+    SECRET_KEY = "z++IIRY4TOybazlRp2/CBl5bUBbYokyMkJY6loFkopw="
     sp = SatangPro(api_key=API_KEY, secret_key=SECRET_KEY)
     sp.orders(pair='btc_thb')
     bid=sp.orders(pair='btc_thb')['bid']
