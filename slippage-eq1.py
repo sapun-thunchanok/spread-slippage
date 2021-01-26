@@ -17,7 +17,7 @@ import math
 from satang_pro import SatangPro
 
 import websocket
-
+import pytz
 
 def bitkub(btc_sell_list):
     # sample_place_bid   
@@ -386,12 +386,24 @@ def bitazza(btc_sell_list):
 
 # MAIN-----------------------------------
 btc_sell_list=[0.1,0.3,0.5,1,5,10]
-bk_time,bk_ask_slippage,bk_bid_slippage,bk_spread=bitkub(btc_sell_list)
+
+ask_slippage_list=[-2, -2,-2,-2,-2,-2]
+bid_slippage_list=[-2, -2,-2,-2,-2,-2]
+spread=-2
+
+try:
+    bk_time,bk_ask_slippage,bk_bid_slippage,bk_spread=bitkub(btc_sell_list)
+except:
+    bk_time,bk_ask_slippage,bk_bid_slippage,bk_spread=[-1,ask_slippage_list,bid_slippage_list,spread]
+    
 hb_time,hb_ask_slippage,hb_bid_slippage,hb_spread=huobi_thailand(btc_sell_list)
 sp_ask_slippage,sp_bid_slippage,sp_spread=satang(btc_sell_list)
 bz_time,bz_ask_slippage,bz_bid_slippage,bz_spread=bitazza(btc_sell_list)
 
-
+tz_name = pytz.country_timezones['th'][0]
+th = pytz.timezone(tz_name)
+time_now = datetime.datetime.now()
+date =time_now.astimezone(th)
 slippage_spread_rows=[hb_time,bk_spread,bk_ask_slippage,bk_bid_slippage,
                       sp_spread,sp_ask_slippage,sp_bid_slippage,
                       hb_spread,hb_ask_slippage,hb_bid_slippage,
